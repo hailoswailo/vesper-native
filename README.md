@@ -48,11 +48,31 @@ web.
 
 Typecheck: `npx tsc --noEmit`
 
+## Supabase
+
+A project exists (`rpypdxmgyswlnkfkxxbq`), and `src/lib/supabase.ts` sets up
+a client from `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY`
+(local dev reads these from `.env`, gitignored; EAS builds read them from
+`eas.json`'s `build.base.env` — safe to commit since the anon/publishable
+key only grants what RLS policies allow).
+
+**It isn't wired into the app yet.** Apply/Directory/Goals/Profile all still
+run on the AsyncStorage `Repository<T>` — see "Status / next steps" below.
+
+`supabase/schema.sql` has the initial schema (a `profiles` table keyed to
+`auth.users`, RLS enabled, tier tracking per the brand brief). Run it once
+in the Supabase dashboard's SQL Editor before starting the real-auth
+migration.
+
 ## Status / next steps
 
 - [x] Core flow rebuilt and verified (tsc clean, full click-through tested)
-- [ ] Real auth (magic link/OTP) to replace the local-device-only session
-- [ ] Supabase wired in for real persistence across devices
+- [x] Pushed to GitHub (`hailoswailo/vesper-native`, private)
+- [x] Supabase project created; client wired up but not yet used by any
+      screen; initial schema drafted in `supabase/schema.sql`
+- [ ] Run `supabase/schema.sql`, then migrate Apply/Directory/Goals/Profile
+      off AsyncStorage and onto Supabase (real auth via magic link/OTP
+      replaces the local-device-only session)
 - [ ] Confirm bundle ID against App Store Connect, `eas build` → TestFlight
 - [ ] Apple IAP / subscription wiring ($19.99/mo, $149.99/yr) once past v1
 
