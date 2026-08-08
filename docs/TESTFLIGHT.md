@@ -22,12 +22,10 @@ repo, even a private one). If you don't still have that file, generate a
 fresh key at App Store Connect → Users and Access → Integrations →
 App Store Connect API, and update the key ID in `eas.json` to match.
 
-`eas.json` already has the API key ID and issuer ID filled in. Two fields
-still say `REPLACE_WITH_...` and need real values before this works:
-
-- `appleTeamId` — developer.apple.com → Account → Membership
-- `ascAppId` — App Store Connect → Vesper: Life After Six. → App Information
-  → "Apple ID" (a numeric ID, not the bundle ID)
+`eas.json` already has everything filled in: API key ID, issuer ID,
+`appleTeamId` (`Z7XD6FQ685`), and `ascAppId` (`6780737136`, matching the
+existing "Vesper: Life After Six." listing in App Store Connect). Nothing
+to edit here — just make sure the `.p8` file above is in place.
 
 ## Authenticate the EAS CLI
 
