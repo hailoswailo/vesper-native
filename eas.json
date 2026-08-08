@@ -36,7 +36,9 @@
   "submit": {
     "production": {
       "ios": {
-        "appleId": "hdc@pulchritudemedia.com",
+        "ascApiKeyPath": "./credentials/AuthKey_HK557NVXSK.p8",
+        "ascApiKeyId": "HK557NVXSK",
+        "ascApiKeyIssuerId": "41f7f6d1-94ce-47b3-9e0c-7d3c8e299610",
         "ascAppId": "REPLACE_WITH_APP_STORE_CONNECT_APP_ID",
         "appleTeamId": "REPLACE_WITH_APPLE_TEAM_ID"
       }
